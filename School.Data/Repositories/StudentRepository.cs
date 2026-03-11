@@ -79,14 +79,10 @@ namespace Escola.Escola.Data.Repositories
             var student = FindById(Id);
             if (student != null)
             {
-                var studentDto = new Student
-                {
-                    FirstName = dto.FirstName,
-                    LastName = dto.LastName,
-                    Email = dto.Email
-
-                };
-                _context.Students.Update(studentDto);
+                student.FirstName = dto.FirstName;
+                student.LastName = dto.LastName;
+                student.Email = dto.Email;
+                _context.Students.Update(student);
                 _context.SaveChanges();
             }
         }
